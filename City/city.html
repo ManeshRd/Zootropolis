@@ -4,18 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>ZPD IceWorld</title>
+  <title>ZPD Zootropolis City</title>
 
-  <link rel="stylesheet" href="iceworld.css" />
+  <link rel="stylesheet" href="city.css" />
 
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.5.1/dist/aframe-extras.min.js"></script>
-  <script src="iceworld.js"></script>
+  <script src="city.js"></script>
 </head>
-<div class="hint">
-WASD - Move <span>|</span> ESC - Close popup or exit 
-</div>
-  <button class="exit-btn" onclick="window.location.href='/index.html#lobbyJudy'">✕ Exit</button>
+<body>
+    <div class="hint">
+    WASD - Move <span>|</span> ESC - Close popup or Exit
+    </div>
+  <button class="exit-btn" onclick="window.location.href='/Zootropolis/index.html#lobbyJudy'">✕ Exit</button>
 
   <button class="exit-btn" onclick="window.location.href='/index.html'">
     ✕ Exit
@@ -29,14 +30,14 @@ WASD - Move <span>|</span> ESC - Close popup or exit
 
   <a-scene>
     <a-assets>
-      <a-asset-item id="iceworld" src="/Zootropolis/ar_assets/Mountain Cabin.glb"></a-asset-item>
+      <a-asset-item id="city" src="/Zootropolis/ar_assets/city.glb"></a-asset-item>
       <a-asset-item id="angryJudy" src="/Zootropolis/ar_assets/angryjudy.glb"></a-asset-item>
     </a-assets>
 
     <a-sky color="#c8e8f8"></a-sky>
 
     <a-entity
-      gltf-model="#iceworld"
+      gltf-model="#city"
       scale="15 15 15"
       position="0 -1.6 0"
     ></a-entity>
@@ -44,9 +45,9 @@ WASD - Move <span>|</span> ESC - Close popup or exit
     <a-entity
       id="angry-judy"
       gltf-model="#angryJudy"
-      position="40 18 -22"
-      rotation="0 180 0"
-      scale="3 3 3"
+      position="26 -15 -49.5"
+      rotation="0 -270 0"
+      scale="2 2 2"
       animation-mixer="clip: *; loop: repeat"
       class="clickable"
     ></a-entity>
@@ -54,8 +55,8 @@ WASD - Move <span>|</span> ESC - Close popup or exit
     <a-entity
       id="rig"
       movement-controls="speed: 0.08"
-      position="40 20 -30"
-      rotation="0 180 0"
+      position="34.35 -14 -49.5"
+      rotation="0 90 0"
     >
       <a-camera
         look-controls="pointerLockEnabled: true"
