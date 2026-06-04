@@ -96,13 +96,19 @@
       </a-gltf-model>
     </a-entity>
 
-    <!-- INDEX 6 — Nick Dancing GLB -->
-    <a-entity mindar-image-target="targetIndex: 6">
-      <a-gltf-model src="#nickDancingModel" position="0 0 0" scale="1.5 1.5 1.5"
-        animation-mixer
-        animation__pop="property: scale; from: 0.15 0.15 0.15; to: 1.5 1.5 1.5; dur: 600; easing: easeOutBack;">
-      </a-gltf-model>
-    </a-entity>
+ <!-- INDEX 6 — Nick & Judy Dancing GLBs -->
+<a-entity mindar-image-target="targetIndex: 6">
+  <!-- Nick (left) -->
+  <a-gltf-model src="#nickDancingModel" position="-0.6 0 0" scale="1.5 1.5 1.5"
+    animation-mixer
+    animation__pop="property: scale; from: 0.15 0.15 0.15; to: 1.5 1.5 1.5; dur: 600; easing: easeOutBack;">
+  </a-gltf-model>
+  <!-- Judy (right) -->
+  <a-gltf-model src="#judyDancingModel" position="0.6 0 0" scale="1.5 1.5 1.5"
+    animation-mixer
+    animation__pop="property: scale; from: 0.15 0.15 0.15; to: 1.5 1.5 1.5; dur: 600; easing: easeOutBack;">
+  </a-gltf-model>
+</a-entity>
 
   </a-scene>
 
@@ -143,3 +149,4 @@
 
 </body>
 </html>
+w
