@@ -32,17 +32,14 @@
     device-orientation-permission-ui="enabled: false"
     loading-screen="enabled: false">
 
-    <a-assets timeout="5000">
-      <img id="clue1Img"      src="/Zootropolis/assets/clue1.png">
-      <img id="clue2Img"      src="/Zootropolis/assets/clue2.png">
-      <img id="clue3Img"      src="/Zootropolis/assets/clue3.png">
-      <img id="clue4Img"      src="/Zootropolis/assets/clue4.png">
-      <img id="clue5Img"      src="/Zootropolis/assets/clue5.png">
-      <img id="clue7Img"      src="/Zootropolis/assets/clue7.png">
-      <img id="clue8Img"      src="/Zootropolis/assets/clue8.png">
-      <img id="easterEggImg"  src="/Zootropolis/assets/easteregg.png">
+    <a-assets timeout="30000">
+      <a-asset-item id="clue1Model"       src="/Zootropolis/ar_assets/clue1.glb"></a-asset-item>
+      <a-asset-item id="clue2Model"       src="/Zootropolis/ar_assets/clue2.glb"></a-asset-item>
+      <a-asset-item id="clue3Model"       src="/Zootropolis/ar_assets/clue3.glb"></a-asset-item>
+      <a-asset-item id="clue4Model"       src="/Zootropolis/ar_assets/clue4.glb"></a-asset-item>
+      <a-asset-item id="clue5Model"       src="/Zootropolis/ar_assets/clue5.glb"></a-asset-item>
+      <a-asset-item id="clue6Model"       src="/Zootropolis/ar_assets/clue6.glb"></a-asset-item>
       <a-asset-item id="nickDancingModel" src="/Zootropolis/ar_assets/nickdancing.glb"></a-asset-item>
-      <a-asset-item id="judyDancingModel" src="/Zootropolis/ar_assets/judydancing.glb"></a-asset-item>
     </a-assets>
 
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
@@ -53,51 +50,55 @@
 
     <!-- INDEX 0 — Clue 1 -->
     <a-entity mindar-image-target="targetIndex: 0">
-    <a-image src="#clue1Img" position="0 0 0" width="1" height="0.9" animation__pop="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; dur: 600; easing: easeOutBack;" animation__rotate="property: rotation; to: 0 0 360; dur: 12000; loop: true; easing: linear;"></a-image>
+      <a-gltf-model src="#clue1Model" position="0 0 0" scale="1 1 1"
+        animation-mixer
+        animation__pop="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; dur: 600; easing: easeOutBack;">
+      </a-gltf-model>
     </a-entity>
 
     <!-- INDEX 1 — Clue 2 -->
     <a-entity mindar-image-target="targetIndex: 1">
-      <a-image src="#clue2Img" position="0 0 0" width="1" height="0.6" animation__pop="property: scale; from: 0.05 0.05 0.05; to: 1 1 1; dur: 600; easing: easeOutBack;"></a-image>
-    </a-entity>
-
-    <!-- INDEX 2 — Clue 3 -->
-    <a-entity mindar-image-target="targetIndex: 2">
-      <a-image src="#clue3Img" position="0 0 0" width="1" height="0.55" animation__pop="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; dur: 600; easing: easeOutBack;"></a-image>
-    </a-entity>
-
-    <!-- INDEX 3 — Clue 4 -->
-    <a-entity mindar-image-target="targetIndex: 3">
-      <a-image src="#clue4Img" position="0 0 0" width="0.8" height="0.7" animation__pop="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; dur: 600; easing: easeOutBack;"></a-image>
-    </a-entity>
-
-    <!-- INDEX 4 — Clue 5 -->
-    <a-entity mindar-image-target="targetIndex: 4">
-      <a-image src="#clue5Img" position="0 0 0" width="0.85" height="0.65" animation__pop="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; dur: 600; easing: easeOutBack;"></a-image>
-    </a-entity>
-
-    <!-- INDEX 5 — Clue 7 -->
-    <a-entity mindar-image-target="targetIndex: 5">
-      <a-image src="#clue7Img" position="0 0 0" width="0.8" height="0.45" animation__pop="property: scale; from: 0.05 0.05 0.05; to: 1 1 1; dur: 600; easing: easeOutBack;"></a-image>
-    </a-entity>
-
-    <!-- INDEX 6 — Clue 8 -->
-    <a-entity mindar-image-target="targetIndex: 6">
-      <a-image src="#clue8Img" position="0 0 0" width="1" height="0.6" animation__pop="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; dur: 600; easing: easeOutBack;"></a-image>
-    </a-entity>
-
-    <!-- INDEX 7 — Easter Egg -->
-    <a-entity mindar-image-target="targetIndex: 7">
-      <a-image src="#easterEggImg" position="0 0 0" width="0.8" height="0.6" animation__pop="property: scale; from: 0.02 0.02 0.02; to: 1 1 1; dur: 600; easing: easeOutBack;"></a-image>
-    </a-entity>
-
-    <!-- INDEX 9 — Nick & Judy Solved -->
-    <a-entity mindar-image-target="targetIndex: 9">
-      <a-gltf-model src="#nickDancingModel" position="-0.5 0 0" scale="1.5 1.5 1.5"
+      <a-gltf-model src="#clue2Model" position="0 0 0" scale="1 1 1"
         animation-mixer
-        animation__pop="property: scale; from: 0.15 0.15 0.15; to: 1.5 1.5 1.5; dur: 600; easing: easeOutBack;">
+        animation__pop="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; dur: 600; easing: easeOutBack;">
       </a-gltf-model>
-      <a-gltf-model src="#judyDancingModel" position="0.5 0 0" scale="1.5 1.5 1.5"
+    </a-entity>
+
+    <!-- INDEX 2 — Clue 3 GLB -->
+    <a-entity mindar-image-target="targetIndex: 2">
+      <a-gltf-model src="#clue3Model" position="0 0 0" scale="1 1 1"
+        animation-mixer
+        animation__pop="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; dur: 600; easing: easeOutBack;">
+      </a-gltf-model>
+    </a-entity>
+
+    <!-- INDEX 3 — Clue 4 GLB -->
+    <a-entity mindar-image-target="targetIndex: 3">
+      <a-gltf-model src="#clue4Model" position="0 0 0" scale="1 1 1"
+        animation-mixer
+        animation__pop="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; dur: 600; easing: easeOutBack;">
+      </a-gltf-model>
+    </a-entity>
+
+    <!-- INDEX 4 — Clue 5 GLB -->
+    <a-entity mindar-image-target="targetIndex: 4">
+      <a-gltf-model src="#clue5Model" position="0 0 0" scale="1 1 1"
+        animation-mixer
+        animation__pop="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; dur: 600; easing: easeOutBack;">
+      </a-gltf-model>
+    </a-entity>
+
+    <!-- INDEX 5 — Clue 6 GLB -->
+    <a-entity mindar-image-target="targetIndex: 5">
+      <a-gltf-model src="#clue6Model" position="0 0 0" scale="1 1 1"
+        animation-mixer
+        animation__pop="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; dur: 600; easing: easeOutBack;">
+      </a-gltf-model>
+    </a-entity>
+
+    <!-- INDEX 6 — Nick Dancing GLB -->
+    <a-entity mindar-image-target="targetIndex: 6">
+      <a-gltf-model src="#nickDancingModel" position="0 0 0" scale="1.5 1.5 1.5"
         animation-mixer
         animation__pop="property: scale; from: 0.15 0.15 0.15; to: 1.5 1.5 1.5; dur: 600; easing: easeOutBack;">
       </a-gltf-model>
@@ -107,7 +108,7 @@
 
   <script>
     const scene = document.querySelector("a-scene");
-    const nickJudyTarget = document.querySelector('[mindar-image-target="targetIndex: 9"]');
+    const nickTarget = document.querySelector('[mindar-image-target="targetIndex: 6"]');
 
     const music = new Audio("/Zootropolis/audio/nick-dancing.mp3");
     music.loop = true;
@@ -127,15 +128,17 @@
       document.addEventListener("touchstart", unlockAudio, { once: true });
     });
 
-    nickJudyTarget.addEventListener("targetFound", () => {
-      music.currentTime = 0;
-      music.play().catch(() => {});
-    });
+    if (nickTarget) {
+      nickTarget.addEventListener("targetFound", () => {
+        music.currentTime = 0;
+        music.play().catch(() => {});
+      });
 
-    nickJudyTarget.addEventListener("targetLost", () => {
-      music.pause();
-      music.currentTime = 0;
-    });
+      nickTarget.addEventListener("targetLost", () => {
+        music.pause();
+        music.currentTime = 0;
+      });
+    }
   </script>
 
 </body>

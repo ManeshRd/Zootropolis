@@ -28,7 +28,7 @@
 
     <a-assets timeout="60000">
       <a-asset-item id="outsideDoorModel" src="/Zootropolis/ar_assets/outsidedoor.glb"></a-asset-item>
-      <a-asset-item id="judyModel" src="/Zootropolis/ar_assets/judypointingcrimeboard.glb"></a-asset-item>
+      <a-asset-item id="judyModel" src="/Zootropolis/ar_assets/Judypointingcrimeboard.glb"></a-asset-item>
       <img id="texFloor"      src="/Zootropolis/assets/cmbfloor.png"      crossorigin="anonymous">
       <img id="texCeiling"    src="/Zootropolis/assets/cmbcealing.png"    crossorigin="anonymous">
       <img id="texNorth"      src="/Zootropolis/assets/cmbnorthwall.png"  crossorigin="anonymous">
@@ -36,14 +36,12 @@
       <img id="texSouth"      src="/Zootropolis/assets/cmbsouthwall.png"  crossorigin="anonymous">
       <img id="texWest"       src="/Zootropolis/assets/cmbwestwall.png"   crossorigin="anonymous">
       <img id="crimeboardImg" src="/Zootropolis/assets/crimeboard.png"    crossorigin="anonymous">
-      <img id="footprints"    src="/Zootropolis/assets/clue1.png"         crossorigin="anonymous">
-      <img id="bowtie"        src="/Zootropolis/assets/clue2.png"         crossorigin="anonymous">
-      <img id="sign"          src="/Zootropolis/assets/clue3.png"         crossorigin="anonymous">
-      <img id="sand"          src="/Zootropolis/assets/clue8.png"         crossorigin="anonymous">
-      <img id="bench"         src="/Zootropolis/assets/clue7.png"         crossorigin="anonymous">
-      <img id="receipt"       src="/Zootropolis/assets/clue5.png"         crossorigin="anonymous">
-      <img id="easteregg"     src="/Zootropolis/assets/easteregg.png"     crossorigin="anonymous">
-      <img id="sock"          src="/Zootropolis/assets/clue4.png"         crossorigin="anonymous">
+      <img id="clue1"         src="/Zootropolis/assets/clue1.png"         crossorigin="anonymous">
+      <img id="clue2"         src="/Zootropolis/assets/clue2.png"         crossorigin="anonymous">
+      <img id="clue3"         src="/Zootropolis/assets/clue3.png"         crossorigin="anonymous">
+      <img id="clue4"         src="/Zootropolis/assets/clue4.png"         crossorigin="anonymous">
+      <img id="clue5"         src="/Zootropolis/assets/clue5.png"         crossorigin="anonymous">
+      <img id="clue6"         src="/Zootropolis/assets/clue6.png"         crossorigin="anonymous">
     </a-assets>
 
     <!-- ROOM -->
@@ -55,15 +53,13 @@
     <a-plane src="#texWest"    width="10" height="4"  rotation="0 90 0"  position="-6 2 0" material="roughness: 0.85; metalness: 0"></a-plane>
 
     <!-- CRIMEBOARD -->
-    <a-plane src="#crimeboardImg" width="4.5" height="2.2" position="0 2.0 -4.78" material="roughness: 0.9; metalness: 0"></a-plane>
-    <a-plane src="#footprints" width="0.75" height="0.69" position="-1.66 2.44 -4.73" material="roughness: 0.9; metalness: 0" class="clickable"></a-plane>
-    <a-plane src="#bowtie"     width="1"    height="0.60" position="-0.53 2.25 -4.73" material="roughness: 0.9; metalness: 0" class="clickable"></a-plane>
-    <a-plane src="#sign"       width="1"    height="0.47" position="0.70 2.55 -4.73"  material="roughness: 0.9; metalness: 0" class="clickable"></a-plane>
-    <a-plane src="#sand"       width="1"    height="0.50" position="-1.55 1.35 -4.73" material="roughness: 0.9; metalness: 0" class="clickable"></a-plane>
-    <a-plane src="#bench"      width="0.75" height="0.40" position="-0.26 1.35 -4.73" material="roughness: 0.9; metalness: 0" class="clickable"></a-plane>
-    <a-plane src="#receipt"    width="0.75" height="0.50" position="1.60 1.39 -4.73"  material="roughness: 0.9; metalness: 0" class="clickable"></a-plane>
-    <a-plane src="#easteregg"  width="0.70" height="0.50" position="0.68 1.68 -4.73"  material="roughness: 0.9; metalness: 0" class="clickable"></a-plane>
-    <a-plane src="#sock"       width="0.62" height="0.52" position="1.75 2.30 -4.72"  material="roughness: 0.9; metalness: 0" class="clickable"></a-plane>
+    <a-plane src="#crimeboardImg" width="4.9" height="2.4" position="0 2.45 -4.78" material="roughness: 0.9; metalness: 0"></a-plane>
+    <a-plane src="#clue1" width="0.68" height="1" position="-1.90 3 -4.74" material="transparent: true; roughness: 0.9; metalness: 0" class="clickable"></a-plane>
+    <a-plane src="#clue2" width="0.68" height="1" position="-0.45 3 -4.74" material="transparent: true; roughness: 0.9; metalness: 0" class="clickable"></a-plane>
+    <a-plane src="#clue3" width="0.68" height="1" position="1.10 3 -4.74" material="transparent: true; roughness: 0.9; metalness: 0" class="clickable"></a-plane>
+    <a-plane src="#clue4" width="0.68" height="1" position="1.95 2.39 -4.74" material="transparent: true; roughness: 0.9; metalness: 0" class="clickable"></a-plane>
+    <a-plane src="#clue5" width="0.68" height="1" position="0.35 2.33 -4.74" material="transparent: true; roughness: 0.9; metalness: 0" class="clickable"></a-plane>
+    <a-plane src="#clue6" width="0.68" height="1" position="-1.17 2.35 -4.74" material="transparent: true; roughness: 0.9; metalness: 0" class="clickable"></a-plane>
 
     <!-- JUDY -->
     <a-entity
