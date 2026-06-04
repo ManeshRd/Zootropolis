@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "Zootopia";
-  src: url("/assets/zootopia.otf") format("opentype");
+  src: url("/Zootropolis/assets/zootopia.otf") format("opentype");
 }
 
 html, body {
@@ -19,20 +19,6 @@ html, body {
 body {
   overflow: hidden;
   font-family: "Luckiest Guy", Arial, sans-serif;
-}
-
-.crosshair {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 8px;
-  height: 8px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
-  z-index: 999;
-  pointer-events: none;
-  box-shadow: 0 0 4px rgba(0,0,0,0.8);
 }
 
 .hint {

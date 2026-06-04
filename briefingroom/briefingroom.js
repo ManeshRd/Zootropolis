@@ -1,16 +1,3 @@
-AFRAME.registerComponent('freeze-pose', {
-  init: function () {
-    const el = this.el;
-    el.addEventListener('model-loaded', function () {
-      const mixer = el.components['animation-mixer'];
-      if (mixer && mixer.mixer) {
-        mixer.mixer.timeScale = 0;
-        mixer.mixer.setTime(0);
-      }
-    });
-  }
-});
-
 AFRAME.registerComponent("movement-bounds", {
   schema: {
     minX: { type: "number", default: -10.5 },

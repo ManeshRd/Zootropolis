@@ -101,17 +101,6 @@ lobbyJudy.addEventListener("click", (event) => {
   window.location.href = "/Zootropolis/briefingroom/briefingroom.html";
 });
 
-const clues = document.querySelectorAll(".clue");
-const followTrail = document.getElementById("followTrail");
-
-if (followTrail && clues.length > 0) {
-  clues.forEach((clue) => {
-    clue.addEventListener("click", () => {
-      followTrail.classList.add("visible");
-    });
-  });
-}
-
 if (window.location.hash === "#lobbyJudy") {
   hasEntered = true;
   canEnter = true;

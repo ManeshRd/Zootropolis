@@ -3,19 +3,13 @@ const zootropolisBtn = document.querySelector("#zootropolisBtn");
 const jungleBtn = document.querySelector("#jungleBtn");
 
 iceworldBtn.addEventListener("click", function () {
-  console.log("Iceworld selected");
-
-  // Later kan je hier je Iceworld pagina koppelen
-  // window.location.href = "/iceworld/iceworld.html";
+  window.location.href = "/Zootropolis/iceworld/iceworld.html";
 });
 
 zootropolisBtn.addEventListener("click", function () {
-  console.log("Zootropolis City selected");
-
-  // Later kan je hier je Zootropolis City pagina koppelen
-  // window.location.href = "/zootropoliscity/zootropoliscity.html";
+  window.location.href = "/Zootropolis/City/city.html";
 });
 
 jungleBtn.addEventListener("click", function () {
-  window.location.href = "/jungle/jungle.html";
+  window.location.href = "/Zootropolis/jungle/jungle.html";
 });

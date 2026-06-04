@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "Zootopia";
-  src: url("/assets/zootopia.otf") format("opentype");
+  src: url("/Zootropolis/assets/zootopia.otf") format("opentype");
 }
 
 html, body {
@@ -83,35 +83,6 @@ body {
   color: white;
 }
 
-/* Judy speech bubble â€” aqua */
-.judy-popup {
-  position: fixed;
-  bottom: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(20, 30, 42, 0.97);
-  color: #f5f0e8;
-  border: 2px solid #72ffac;
-  border-radius: 12px;
-  padding: 24px 32px;
-  font-family: "Luckiest Guy", Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 900;
-  text-transform: uppercase;
-  text-align: center;
-  max-width: 320px;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0;
-  box-shadow: 0 0 14px rgba(114, 255, 172, 0.25);
-  transition: opacity 0.4s ease;
-}
-
-.judy-popup.visible {
-  opacity: 1;
-}
-
-/* Judy click popup â€” geel */
 #judy-popup {
   display: none;
   position: fixed;
