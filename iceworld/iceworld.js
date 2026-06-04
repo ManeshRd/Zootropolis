@@ -1,8 +1,10 @@
 // Live positie display
 document.addEventListener('DOMContentLoaded', function () {
   const scene = document.querySelector('a-scene');
+
   scene.addEventListener('loaded', function () {
 
+    // --- Live tracker ---
     const info = document.createElement('div');
     info.style.cssText = `
       position: fixed; top: 16px; left: 16px;
@@ -22,6 +24,21 @@ document.addEventListener('DOMContentLoaded', function () {
       requestAnimationFrame(update);
     }
     update();
+
+    // --- Judy klik popup ---
+    const judy = document.getElementById('angry-judy');
+    const popup = document.getElementById('judy-popup');
+
+    judy.addEventListener('click', function () {
+      popup.style.display = 'block';
+    });
+
+    // Popup sluiten bij klik buiten
+    popup.addEventListener('click', function (e) {
+      if (e.target === this) {
+        this.style.display = 'none';
+      }
+    });
 
   });
 });

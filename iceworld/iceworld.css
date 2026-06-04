@@ -65,3 +65,45 @@ body {
   background: #ff6b6b;
   color: white;
 }
+
+/* Judy popup */
+#judy-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #a8d8f0;
+  border-radius: 16px;
+  padding: 28px 36px;
+  text-align: center;
+  z-index: 9999;
+  color: black;
+  font-family: "Luckiest Guy", Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  max-width: 340px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.5);
+}
+
+#judy-popup button {
+  margin-top: 18px;
+  padding: 10px 24px;
+  background: black;
+  color: #a8d8f0;
+  border: none;
+  border-radius: 10px;
+  font-family: "Luckiest Guy", Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#judy-popup button:hover {
+  background: #222;
+}
