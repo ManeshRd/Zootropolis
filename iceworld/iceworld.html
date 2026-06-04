@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ZPD IceWorld</title>
+
+  <link rel="stylesheet" href="iceworld.css" />
+
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.5.1/dist/aframe-extras.min.js"></script>
+  <script src="iceworld.js"></script>
+</head>
+
+<body>
+  <div class="hint">WASD = move</div>
+
+  <button class="exit-btn" onclick="window.location.href='/index.html'">
+    ✕ Exit
+  </button>
+
+  <a-scene>
+    <a-assets>
+      <a-asset-item id="iceworld" src="/Zootropolis/ar_assets/Mountain Cabin.glb"></a-asset-item>
+    </a-assets>
+
+    <a-sky color="#c8e8f8"></a-sky>
+
+    <a-entity
+      gltf-model="#iceworld"
+      scale="15 15 15"
+      position="0 -1.6 0"
+    ></a-entity>
+
+    <a-entity
+    id="rig"
+    movement-controls="speed: 0.08"
+    position="40 20 -30"
+    rotation="0 180 0"
+    >
+    <a-camera
+    look-controls="pointerLockEnabled: true"
+    wasd-controls="acceleration: 100"
+    position="0 1.65 0"
+    >
+        <a-cursor color="white"></a-cursor>
+      </a-camera>
+    </a-entity>
+
+    <a-light type="ambient" color="#d0e8ff" intensity="0.7"></a-light>
+    <a-light type="directional" color="#ffffff" intensity="1.1" position="5 12 -4"></a-light>
+  </a-scene>
+</body>
+</html>
