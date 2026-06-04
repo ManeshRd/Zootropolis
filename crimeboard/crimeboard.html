@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZPD Crimeboard</title>
-  <link rel="stylesheet" href="/crimeboard/crimeboard.css" />
+  <link rel="stylesheet" href="/Zootropolis/crimeboard/crimeboard.css" />
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.5.1/dist/aframe-extras.min.js"></script>
 </head>
@@ -13,7 +13,7 @@
   <div class="hint">
   WASD - Move <span>|</span> ESC - Close popup
 </div>
-  <button class="exit-btn" onclick="window.location.href='/index.html#lobbyJudy'">✕ Exit</button>
+  <button class="exit-btn" onclick="window.location.href='/Zootropolis/index.html#lobbyJudy'">✕ Exit</button>
 
   <!-- Judy popup -->
   <div id="judy-popup">
@@ -27,23 +27,23 @@
     loading-screen="enabled: false">
 
     <a-assets timeout="60000">
-      <a-asset-item id="outsideDoorModel" src="/ar_assets/outsidedoor.glb"></a-asset-item>
-      <a-asset-item id="judyModel" src="/ar_assets/judypointingcrimeboard.glb"></a-asset-item>
-      <img id="texFloor"      src="/assets/cmbfloor.png"      crossorigin="anonymous">
-      <img id="texCeiling"    src="/assets/cmbcealing.png"    crossorigin="anonymous">
-      <img id="texNorth"      src="/assets/cmbnorthwall.png"  crossorigin="anonymous">
-      <img id="texEast"       src="/assets/cmbeastwall.png"   crossorigin="anonymous">
-      <img id="texSouth"      src="/assets/cmbsouthwall.png"  crossorigin="anonymous">
-      <img id="texWest"       src="/assets/cmbwestwall.png"   crossorigin="anonymous">
-      <img id="crimeboardImg" src="/assets/crimeboard.png"    crossorigin="anonymous">
-      <img id="footprints"    src="/assets/clue1.png"         crossorigin="anonymous">
-      <img id="bowtie"        src="/assets/clue2.png"         crossorigin="anonymous">
-      <img id="sign"          src="/assets/clue3.png"         crossorigin="anonymous">
-      <img id="sand"          src="/assets/clue8.png"         crossorigin="anonymous">
-      <img id="bench"         src="/assets/clue7.png"         crossorigin="anonymous">
-      <img id="receipt"       src="/assets/clue5.png"         crossorigin="anonymous">
-      <img id="easteregg"     src="/assets/easteregg.png"     crossorigin="anonymous">
-      <img id="sock"          src="/assets/clue4.png"         crossorigin="anonymous">
+      <a-asset-item id="outsideDoorModel" src="/Zootropolis/ar_assets/outsidedoor.glb"></a-asset-item>
+      <a-asset-item id="judyModel" src="/Zootropolis/ar_assets/judypointingcrimeboard.glb"></a-asset-item>
+      <img id="texFloor"      src="/Zootropolis/assets/cmbfloor.png"      crossorigin="anonymous">
+      <img id="texCeiling"    src="/Zootropolis/assets/cmbcealing.png"    crossorigin="anonymous">
+      <img id="texNorth"      src="/Zootropolis/assets/cmbnorthwall.png"  crossorigin="anonymous">
+      <img id="texEast"       src="/Zootropolis/assets/cmbeastwall.png"   crossorigin="anonymous">
+      <img id="texSouth"      src="/Zootropolis/assets/cmbsouthwall.png"  crossorigin="anonymous">
+      <img id="texWest"       src="/Zootropolis/assets/cmbwestwall.png"   crossorigin="anonymous">
+      <img id="crimeboardImg" src="/Zootropolis/assets/crimeboard.png"    crossorigin="anonymous">
+      <img id="footprints"    src="/Zootropolis/assets/clue1.png"         crossorigin="anonymous">
+      <img id="bowtie"        src="/Zootropolis/assets/clue2.png"         crossorigin="anonymous">
+      <img id="sign"          src="/Zootropolis/assets/clue3.png"         crossorigin="anonymous">
+      <img id="sand"          src="/Zootropolis/assets/clue8.png"         crossorigin="anonymous">
+      <img id="bench"         src="/Zootropolis/assets/clue7.png"         crossorigin="anonymous">
+      <img id="receipt"       src="/Zootropolis/assets/clue5.png"         crossorigin="anonymous">
+      <img id="easteregg"     src="/Zootropolis/assets/easteregg.png"     crossorigin="anonymous">
+      <img id="sock"          src="/Zootropolis/assets/clue4.png"         crossorigin="anonymous">
     </a-assets>
 
     <!-- ROOM -->
@@ -96,7 +96,7 @@
 
   </a-scene>
 
-  <script src="/crimeboard/crimeboard.js"></script>
+  <script src="/Zootropolis/crimeboard/crimeboard.js"></script>
 
   <script>
     document.querySelector('#judyHopps').addEventListener('click', function () {

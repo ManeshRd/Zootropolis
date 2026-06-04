@@ -98,7 +98,7 @@ scene.addEventListener("click", () => {
 /* Judy goes to briefing room */
 lobbyJudy.addEventListener("click", (event) => {
   event.stopPropagation();
-  window.location.href = "/briefingroom/briefingroom.html";
+  window.location.href = "/Zootropolis/briefingroom/briefingroom.html";
 });
 
 const clues = document.querySelectorAll(".clue");

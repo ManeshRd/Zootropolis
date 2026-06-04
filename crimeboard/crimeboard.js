@@ -64,6 +64,6 @@ document.getElementById("door").addEventListener("click", () => {
   });
 
   setTimeout(() => {
-    window.location.href = "/briefingroom/briefingroom.html?from=crimeboard";
+    window.location.href = "/Zootropolis/briefingroom/briefingroom.html?from=crimeboard";
   }, 900);
 });
