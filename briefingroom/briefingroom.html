@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZPD Briefing Room</title>
+  <link rel="stylesheet" href="/briefingroom/briefingroom.css" />
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.5.1/dist/aframe-extras.min.js"></script>
+  <script src="/briefingroom/briefingroom.js"></script>
+</head>
+<body>
+  <div class="crosshair"></div>
+  <div class="hint">
+  WASD - Move <span>|</span> ESC - Close popup
+</div>
+  <button class="exit-btn" onclick="window.location.href='/index.html#lobbyJudy'">✕ Exit</button>
+
+  <!-- Judy popup -->
+  <div id="judy-popup">
+    <p>Hello trainee! Nick is hiding, he left clues go to the crimeboard  and connect the evidence!</p>
+    <button onclick="document.getElementById('judy-popup').style.display='none'">Got it!</button>
+  </div>
+
+  <a-scene renderer="colorManagement: true; antialias: true; physicallyCorrectLights: true;" vr-mode-ui="enabled: false" loading-screen="enabled: false">
+    <a-assets timeout="120000">
+      <img id="texFloor"   src="/assets/floor.png" />
+      <img id="texCeiling" src="/assets/ceiling.png" />
+      <img id="texNorth"   src="/assets/northwall.png" />
+      <img id="texSouth"   src="/assets/southwall.png" />
+      <img id="texWest"    src="/assets/westwall.png" />
+      <img id="texEast"    src="/assets/eastwall.png" />
+      <img id="badge"      src="/assets/badge.png" />
+      <img id="poster"     src="/assets/missingposter.png" />
+      <a-asset-item id="crimeboardDoorModel" src="/ar_assets/crimeboarddoor.glb"></a-asset-item>
+      <a-asset-item id="chairModel"          src="/ar_assets/chair.glb"></a-asset-item>
+      <a-asset-item id="OutsideModel"        src="/ar_assets/outsidedoor.glb"></a-asset-item>
+      <a-asset-item id="judyModel"           src="/ar_assets/judybriefingroom.glb"></a-asset-item>
+    </a-assets>
+
+    <!-- RUIMTE -->
+    <a-plane src="#texFloor"   width="15" height="14" rotation="-90 0 0" position="-3.5 0 -6"  material="repeat: 3 3; roughness: 0.9; metalness: 0"></a-plane>
+    <a-plane src="#texCeiling" width="15" height="14" rotation="90 0 0"  position="-3.5 4 -6"  material="repeat: 3 3; roughness: 0.8; metalness: 0"></a-plane>
+    <a-plane src="#texNorth"   width="15" height="4"                     position="-3.5 2 -13"  material="roughness: 0.85; metalness: 0"></a-plane>
+    <a-plane src="#texSouth"   width="15" height="4"  rotation="0 180 0" position="-3.5 2 1"   material="roughness: 0.85; metalness: 0"></a-plane>
+    <a-plane src="#texWest"    width="14" height="4"  rotation="0 90 0"  position="-11 2 -6"   material="roughness: 0.85; metalness: 0"></a-plane>
+    <a-plane src="#texEast"    width="14" height="4"  rotation="0 -90 0" position="4 2 -6"     material="roughness: 0.85; metalness: 0"></a-plane>
+
+    <!-- PLINTEN -->
+    <a-box color="#2a4a7f" width="15"   height="0.5" depth="0.21" position="-3.5 0.4 -13"></a-box>
+    <a-box color="#2a4a7f" width="15"   height="0.5" depth="0.21" position="-3.5 0.4 1"></a-box>
+    <a-box color="#2a4a7f" width="0.21" height="0.5" depth="14"   position="-11 0.4 -6"></a-box>
+    <a-box color="#2a4a7f" width="0.21" height="0.5" depth="14"   position="4 0.4 -6"></a-box>
+
+    <!-- ACHTERWAND -->
+    <a-box color="#E8E8E4" width="1.2" height="1.5" depth="0.05" position="-7 2.5 -12.85"></a-box>
+    <a-box color="#f5f0e8" width="1"   height="1.3" depth="0.06" position="-7 2.5 -12.83"></a-box>
+    <a-box color="#c8980a" width="0.5" height="0.5" depth="0.07" position="-7 2.6 -12.82"></a-box>
+    <a-image src="#poster" position="-5.5 2.5 -12.8" width="1.3" height="2"></a-image>
+
+    <!-- FINAL TEST POSTER -->
+    <a-box color="#142B4D" width="2.5" height="1.8" depth="0.05" position="0 2.4 -12.88"></a-box>
+    <a-box color="#E8E8E4" width="2.2" height="1.5" depth="0.06" position="0 2.4 -12.84"></a-box>
+    <a-text value="FINAL TEST"                    color="#142B4D" align="center" width="4" position="0 2.75 -12.78"></a-text>
+    <a-text value="Find Nick Wilde&#10;scan for help" color="#142B4D" align="center" width="3" position="0 2.35 -12.78"></a-text>
+    <a-box color="#c8980a" width="1.2" height="0.08" depth="0.07" position="0 2.58 -12.77"></a-box>
+
+    <!-- MEUBILAIR LINKS -->
+    <a-entity position="-6 0 -2">
+      <a-box color="#C9BBA6" width="4" height="0.06" depth="1.2" position="0 0.76 0"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="-1.8 0.38 0.5"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="-1.8 0.38 -0.5"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="1.8 0.38 0.5"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="1.8 0.38 -0.5"></a-box>
+      <a-gltf-model src="#chairModel" position="-1 0 0.6"  rotation="0 180 0" scale="4 4 4"></a-gltf-model>
+      <a-gltf-model src="#chairModel" position="0.2 0 0.6" rotation="0 180 0" scale="4 4 4"></a-gltf-model>
+      <a-gltf-model src="#chairModel" position="1.4 0 0.6" rotation="0 180 0" scale="4 4 4"></a-gltf-model>
+    </a-entity>
+    <a-entity position="-6 0 -5">
+      <a-box color="#C9BBA6" width="4" height="0.06" depth="1.2" position="0 0.76 0"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="-1.8 0.38 0.5"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="-1.8 0.38 -0.5"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="1.8 0.38 0.5"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="1.8 0.38 -0.5"></a-box>
+      <a-gltf-model src="#chairModel" position="-1 0 0.6"  rotation="0 180 0" scale="4 4 4"></a-gltf-model>
+      <a-gltf-model src="#chairModel" position="0.2 0 0.6" rotation="0 180 0" scale="4 4 4"></a-gltf-model>
+      <a-gltf-model src="#chairModel" position="1.4 0 0.6" rotation="0 180 0" scale="4 4 4"></a-gltf-model>
+    </a-entity>
+    <a-entity position="-6 0 -8">
+      <a-box color="#C9BBA6" width="4" height="0.06" depth="1.2" position="0 0.76 0"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="-1.8 0.38 0.5"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="-1.8 0.38 -0.5"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="1.8 0.38 0.5"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="1.8 0.38 -0.5"></a-box>
+      <a-gltf-model src="#chairModel" position="-1 0 0.6"  rotation="0 180 0" scale="4 4 4"></a-gltf-model>
+      <a-gltf-model src="#chairModel" position="0.2 0 0.6" rotation="0 180 0" scale="4 4 4"></a-gltf-model>
+      <a-gltf-model src="#chairModel" position="1.4 0 0.6" rotation="0 180 0" scale="4 4 4"></a-gltf-model>
+    </a-entity>
+
+    <!-- MEUBILAIR MIDDEN -->
+    <a-entity position="0 0 -2">
+      <a-box color="#C9BBA6" width="4" height="0.06" depth="1.2" position="0 0.76 0"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="-1.8 0.38 0.5"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="-1.8 0.38 -0.5"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="1.8 0.38 0.5"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="1.8 0.38 -0.5"></a-box>
+      <a-gltf-model src="#chairModel" position="-1.2 0 0.6" rotation="0 180 0" scale="4 4 4"></a-gltf-model>
+      <a-gltf-model src="#chairModel" position="0 0 0.6"    rotation="0 180 0" scale="4 4 4"></a-gltf-model>
+      <a-gltf-model src="#chairModel" position="1.2 0 0.6"  rotation="0 180 0" scale="4 4 4"></a-gltf-model>
+    </a-entity>
+    <a-entity position="0 0 -5">
+      <a-box color="#C9BBA6" width="4" height="0.06" depth="1.2" position="0 0.76 0"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="-1.8 0.38 0.5"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="-1.8 0.38 -0.5"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="1.8 0.38 0.5"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="1.8 0.38 -0.5"></a-box>
+      <a-gltf-model src="#chairModel" position="-1.2 0 0.6" rotation="0 180 0" scale="4 4 4"></a-gltf-model>
+      <a-gltf-model src="#chairModel" position="0 0 0.6"    rotation="0 180 0" scale="4 4 4"></a-gltf-model>
+      <a-gltf-model src="#chairModel" position="1.2 0 0.6"  rotation="0 180 0" scale="4 4 4"></a-gltf-model>
+    </a-entity>
+    <a-entity position="0 0 -8">
+      <a-box color="#C9BBA6" width="4" height="0.06" depth="1.2" position="0 0.76 0"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="-1.8 0.38 0.5"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="-1.8 0.38 -0.5"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="1.8 0.38 0.5"></a-box>
+      <a-box color="#8F9AA3" width="0.07" height="0.76" depth="0.07" position="1.8 0.38 -0.5"></a-box>
+      <a-gltf-model src="#chairModel" position="-1.2 0 0.6" rotation="0 180 0" scale="4 4 4"></a-gltf-model>
+      <a-gltf-model src="#chairModel" position="0 0 0.6"    rotation="0 180 0" scale="4 4 4"></a-gltf-model>
+      <a-gltf-model src="#chairModel" position="1.2 0 0.6"  rotation="0 180 0" scale="4 4 4"></a-gltf-model>
+    </a-entity>
+
+    <!-- PODIUM -->
+    <a-box color="#142B4D" width="0.9"  height="1.0"  depth="0.65" position="-3 0.50 -10.5"></a-box>
+    <a-box color="#142B4D" width="0.95" height="0.08" depth="0.70" position="-3 1.02 -10.5"></a-box>
+    <a-box color="#142B4D" width="0.55" height="0.30" depth="0.02" position="-3 0.96 -10.83" rotation="-25 0 0"></a-box>
+
+    <!-- MODELLEN -->
+    <a-gltf-model id="door"   src="#crimeboardDoorModel" position="3.92 1.50 -12"  rotation="0 0 0"   scale="3 3 3" class="clickable"></a-gltf-model>
+    <a-image src="#badge" position="-3 2.50 -12.8" width="2" height="2"></a-image>
+    <a-gltf-model id="outside" src="#OutsideModel" position="-2.98 1.50 0.90" rotation="0 180 0" scale="3 3 3" class="clickable"></a-gltf-model>
+
+    <!-- JUDY HOPPS -->
+    <a-entity
+      id="judyHopps"
+      gltf-model="#judyModel"
+      position="-3 0 -11.2"
+      scale="1.75 1.75 1.75"
+      rotation="0 0 0"
+      animation-mixer="clip: mixamo.com; loop: repeat"
+      class="clickable">
+    </a-entity>
+
+    <!-- LICHT -->
+    <a-light type="ambient"     intensity="1.2"></a-light>
+    <a-light type="directional" position="0 5 0"    intensity="0.9"></a-light>
+    <a-light type="point"       position="-4 3.5 -6" intensity="0.5" color="#f8f8f0"></a-light>
+    <a-light type="point"       position="4 3.5 -6"  intensity="0.5" color="#f8f8f0"></a-light>
+    <a-light type="point"       position="0 3.5 0"   intensity="0.5" color="#f8f8f0"></a-light>
+
+    <!-- SPELER -->
+    <a-entity id="player" position="-3 1.6 0" movement-bounds="minX: -10.5; maxX: 3.5; minZ: -12.5; maxZ: 0.5">
+      <a-camera wasd-controls="acceleration: 70" look-controls="pointerLockEnabled: true" position="0 0 0">
+        <a-cursor color="#72ffac" fuse="false" raycaster="objects: .clickable"></a-cursor>
+      </a-camera>
+    </a-entity>
+  </a-scene>
+
+  <script>
+    document.querySelector('#judyHopps').addEventListener('click', function () {
+      document.getElementById('judy-popup').style.display = 'block';
+    });
+  </script>
+</body>
+</html>

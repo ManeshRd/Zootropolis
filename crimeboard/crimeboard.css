@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+@font-face {
+  font-family: "Zootopia";
+  src: url("/assets/zootopia.otf") format("opentype");
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  font-family: "Luckiest Guy", Arial, sans-serif;
+}
+
+/* Crosshair â€” simpel punt */
+.crosshair {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  z-index: 999;
+  pointer-events: none;
+  box-shadow: 0 0 4px rgba(0,0,0,0.8);
+}
+
+/* WASD move bar â€” aqua */
+.hint {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: #72ffac;
+  border: 1px solid #72ffac;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-family: "Zootopia", "Luckiest Guy", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 999;
+  pointer-events: none;
+  box-shadow: 0 0 12px rgba(114, 255, 172, 0.25);
+}
+
+/* Exit button */
+.exit-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  background: rgba(10, 20, 40, 0.92);
+  color: #ff6b6b;
+  border: 2px solid #ff6b6b;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-family: "Luckiest Guy", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 999;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.exit-btn:hover {
+  background: #ff6b6b;
+  color: white;
+}
+
+/* Judy speech bubble â€” aqua */
+.judy-popup {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(20, 30, 42, 0.97);
+  color: #f5f0e8;
+  border: 2px solid #72ffac;
+  border-radius: 12px;
+  padding: 24px 32px;
+  font-family: "Luckiest Guy", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  max-width: 320px;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow: 0 0 14px rgba(114, 255, 172, 0.25);
+  transition: opacity 0.4s ease;
+}
+
+.judy-popup.visible {
+  opacity: 1;
+}
+
+/* Judy click popup â€” geel */
+#judy-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #243329;
+  border-radius: 16px;
+  padding: 28px 36px;
+  text-align: center;
+  z-index: 9999;
+  color: black;
+  font-family: "Luckiest Guy", Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  max-width: 320px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.5);
+}
+
+#judy-popup button {
+  margin-top: 18px;
+  padding: 10px 24px;
+  background: #111713;
+  color: #D1B22E;
+  border: none;
+  border-radius: 10px;
+  font-family: "Luckiest Guy", Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#judy-popup button:hover {
+  background: #222;
+}

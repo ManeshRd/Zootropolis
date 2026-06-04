@@ -1,0 +1,208 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* PAGE */
+.choice-page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* FULLSCREEN BACKGROUND */
+.choice-bg {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  z-index: 1;
+}
+
+/* DARK OVERLAY */
+.choice-darkness {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at center, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.32)),
+    rgba(0, 0, 0, 0.15);
+
+  z-index: 2;
+}
+
+/* BIG TRANSPARENT PANEL */
+.choice-panel {
+  position: relative;
+  z-index: 3;
+
+  width: 82vw;
+  max-width: 1120px;
+  height: 58vh;
+  min-height: 390px;
+
+  padding: 36px 46px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 38px;
+
+  background: rgba(35, 35, 35, 0.58);
+  backdrop-filter: blur(1.5px);
+
+  box-shadow:
+    0 0 42px rgba(0, 0, 0, 0.35),
+    inset 0 0 35px rgba(0, 0, 0, 0.2);
+}
+
+/* CARD BUTTON */
+.choice-card {
+  width: 30%;
+  height: 100%;
+
+  border: none;
+  background: transparent;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.22s ease,
+    filter 0.22s ease;
+}
+
+.choice-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  filter: brightness(1.12);
+}
+
+.choice-card:active {
+  transform: scale(0.96);
+}
+
+/* IMAGE */
+.choice-image {
+  width: 100%;
+  height: 250px;
+
+  margin-bottom: 18px;
+
+  object-fit: contain;
+  object-position: center;
+
+  filter: drop-shadow(0 16px 12px rgba(0, 0, 0, 0.45));
+
+  transition:
+    transform 0.22s ease,
+    filter 0.22s ease;
+}
+
+.choice-card:hover .choice-image {
+  transform: scale(1.04);
+  filter:
+    drop-shadow(0 18px 14px rgba(0, 0, 0, 0.5))
+    drop-shadow(0 0 10px rgba(255, 222, 42, 0.28));
+}
+
+/* TEXT */
+.choice-card h2 {
+  color: #ffde2a;
+
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 0.9;
+  text-align: center;
+  text-transform: uppercase;
+
+  letter-spacing: -1px;
+
+  text-shadow:
+    3px 3px 0 rgba(0, 0, 0, 0.65),
+    0 0 8px rgba(255, 222, 42, 0.25);
+}
+
+.exit-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  background: rgba(10, 20, 40, 0.92);
+  color: #ff6b6b;
+  border: 2px solid #ff6b6b;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-family: "Luckiest Guy", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 999;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.exit-btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: black;
+}
+
+/* MOBILE */
+@media (max-width: 850px) {
+  html,
+  body {
+    overflow-y: auto;
+  }
+
+  .choice-page {
+    min-height: 100vh;
+    height: auto;
+    padding: 30px 0;
+  }
+
+  .choice-panel {
+    width: 88vw;
+    height: auto;
+    min-height: auto;
+
+    padding: 28px 22px;
+
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .choice-card {
+    width: 100%;
+  }
+
+  .choice-image {
+    height: 210px;
+  }
+
+  .choice-card h2 {
+    font-size: 24px;
+  }
+}

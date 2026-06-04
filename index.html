@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ZPD — Zootropolis</title>
+
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+
+  <main class="page">
+    <section class="scene" id="scene">
+
+      <!-- START BACKGROUND -->
+      <img
+        src="assets/Policestation.png"
+        alt="Zootropolis Police Station"
+        class="bg-start"
+        id="bgStart"
+      />
+
+      <!-- WELCOME TEXT -->
+      <div class="welcome" id="welcome">
+        <span>Welcome to</span>
+        <span>Zootropolis</span>
+        <span>Police Department</span>
+      </div>
+
+      <!-- ENTER TEXT -->
+      <div class="enter-hint" id="enterHint">
+        Click here to enter
+      </div>
+
+      <!-- START CHARACTER -->
+      <img
+        src="assets/Clauwhauser.png"
+        alt="Clawhauser"
+        class="clawhauser"
+        id="clawhauser"
+      />
+
+      <!-- DOOR ANIMATION -->
+      <img src="assets/Deurdicht.png" alt="" class="door-step" id="doorClosed" />
+      <img src="assets/halfopen.png" alt="" class="door-step" id="doorHalf" />
+      <img src="assets/deuropen.png" alt="" class="door-step" id="doorOpen" />
+
+      <!-- LOBBY -->
+      <img
+        src="assets/Lobby.png"
+        alt="ZPD Lobby"
+        class="lobby-reveal"
+        id="lobby"
+      />
+
+      <!-- CLAWHAUSER HELP BUBBLE -->
+      <div class="lobby-clawhauser-bubble" id="lobbyClawhauserBubble">
+        Use AR?<br />
+        Scan glowing items.
+      </div>
+
+      <!-- QR CODE FOCUS PANEL -->
+      <div class="lobby-qr-panel" id="lobbyQRPanel">
+        <div class="qr-title">ZPD AR CASE</div>
+
+        <img
+          src="assets/qr-code.png"
+          alt="QR Code"
+          id="lobbyQR"
+          class="lobby-qr"
+        />
+
+        <div class="qr-text">
+          Scan to start investigation
+        </div>
+      </div>
+
+      <!-- JUDY -->
+      <img
+        src="assets/LobbyJudy.png"
+        alt="Judy Hopps"
+        class="lobby-judy"
+        id="lobbyJudy"
+      />
+
+      <!-- JUDY BUBBLE -->
+      <div class="judy-bubble" id="judyBubble">
+        Tap me to enter<br />
+        the final test
+      </div>
+
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ZPD Jungle</title>
+
+  <link rel="stylesheet" href="/jungle/jungle.css" />
+
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.5.1/dist/aframe-extras.min.js"></script>
+  <script src="jungle.js"></script>
+</head>
+
+<body>
+  <div class="hint">WASD = move</div>
+
+  <button class="exit-btn" onclick="window.location.href='/index.html#lobbyJudy'">
+    ✕ Exit
+  </button>
+
+  <!-- Nick popup -->
+  <div id="nick-popup">
+    <p>You found me Nice job officer</p>
+    <button onclick="window.location.href='/casesolved/casesolved.html'">Back to Station</button>
+  </div>
+
+  <a-scene>
+    <a-assets>
+      <a-asset-item id="jungle" src="/ar_assets/jungle.glb"></a-asset-item>
+      <a-asset-item id="nickWilde" src="/ar_assets/nickwildejungle.glb"></a-asset-item>
+
+      <img id="sky" src="/assets/sky.png">
+      <img id="footprint" src="/assets/footprint.png">
+    </a-assets>
+
+    <a-sky src="#sky"></a-sky>
+
+    <a-entity
+      gltf-model="#jungle"
+      scale="15 15 15"
+      position="0 -1.6 0"
+    ></a-entity>
+
+    <!-- Footprints die langzaam verdwijnen in het groen -->
+    <a-entity
+      footprint-trail="
+        count: 14;
+        spacing: 0.65;
+        size: 0.38;
+        opacity: 0.9;
+        fadeStart: 0.35;
+        fadeEndOpacity: 0.02
+      "
+      position="-1 -2.65 -1"
+    ></a-entity>
+
+    <!-- Nick Wilde GLB -->
+    <a-entity
+      id="nick-wilde"
+      gltf-model="#nickWilde"
+      position="-1 -2.45 -12.50"
+      scale="0.75 0.75 0.75"
+      rotation="0 20 0"
+      animation-mixer="clip: mixamo.com; loop: repeat"
+      class="clickable"
+    ></a-entity>
+
+    <a-entity
+      id="rig"
+      movement-controls="speed: 0.08"
+      position="0 0 0"
+    >
+      <a-camera
+        look-controls="pointerLockEnabled: true"
+        wasd-controls="acceleration: 20"
+        position="-1 -2.15 0"
+      >
+        <a-cursor color="white"></a-cursor>
+      </a-camera>
+    </a-entity>
+
+    <a-light type="ambient" color="#7aab6b" intensity="0.7"></a-light>
+
+    <a-light
+      type="directional"
+      color="#d4f0a0"
+      intensity="0.9"
+      position="2 5 -1"
+    ></a-light>
+  </a-scene>
+</body>
+</html>

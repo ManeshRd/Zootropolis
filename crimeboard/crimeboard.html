@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZPD Crimeboard</title>
+  <link rel="stylesheet" href="/crimeboard/crimeboard.css" />
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.5.1/dist/aframe-extras.min.js"></script>
+</head>
+<body>
+    <div class="crosshair"></div>
+  <div class="hint">
+  WASD - Move <span>|</span> ESC - Close popup
+</div>
+  <button class="exit-btn" onclick="window.location.href='/index.html#lobbyJudy'">✕ Exit</button>
+
+  <!-- Judy popup -->
+  <div id="judy-popup">
+    <p>Scan each clue and zoom in to uncover the 4-digit code hidden in the evidence!</p>
+    <button onclick="document.getElementById('judy-popup').style.display='none'">Got it!</button>
+  </div>
+
+  <a-scene
+    renderer="colorManagement: true; antialias: true;"
+    vr-mode-ui="enabled: false"
+    loading-screen="enabled: false">
+
+    <a-assets timeout="60000">
+      <a-asset-item id="outsideDoorModel" src="/ar_assets/outsidedoor.glb"></a-asset-item>
+      <a-asset-item id="judyModel" src="/ar_assets/judypointingcrimeboard.glb"></a-asset-item>
+      <img id="texFloor"      src="/assets/cmbfloor.png"      crossorigin="anonymous">
+      <img id="texCeiling"    src="/assets/cmbcealing.png"    crossorigin="anonymous">
+      <img id="texNorth"      src="/assets/cmbnorthwall.png"  crossorigin="anonymous">
+      <img id="texEast"       src="/assets/cmbeastwall.png"   crossorigin="anonymous">
+      <img id="texSouth"      src="/assets/cmbsouthwall.png"  crossorigin="anonymous">
+      <img id="texWest"       src="/assets/cmbwestwall.png"   crossorigin="anonymous">
+      <img id="crimeboardImg" src="/assets/crimeboard.png"    crossorigin="anonymous">
+      <img id="footprints"    src="/assets/clue1.png"         crossorigin="anonymous">
+      <img id="bowtie"        src="/assets/clue2.png"         crossorigin="anonymous">
+      <img id="sign"          src="/assets/clue3.png"         crossorigin="anonymous">
+      <img id="sand"          src="/assets/clue8.png"         crossorigin="anonymous">
+      <img id="bench"         src="/assets/clue7.png"         crossorigin="anonymous">
+      <img id="receipt"       src="/assets/clue5.png"         crossorigin="anonymous">
+      <img id="easteregg"     src="/assets/easteregg.png"     crossorigin="anonymous">
+      <img id="sock"          src="/assets/clue4.png"         crossorigin="anonymous">
+    </a-assets>
+
+    <!-- ROOM -->
+    <a-plane src="#texFloor"   width="12" height="10" rotation="-90 0 0" position="0 0 0" material="roughness: 0.9; metalness: 0"></a-plane>
+    <a-plane src="#texCeiling" width="12" height="10" rotation="90 0 0"  position="0 4 0" material="roughness: 0.8; metalness: 0"></a-plane>
+    <a-plane src="#texNorth"   width="12" height="4"                     position="0 2 -5" material="roughness: 0.85; metalness: 0"></a-plane>
+    <a-plane src="#texSouth"   width="12" height="4"  rotation="0 180 0" position="0 2 5"  material="roughness: 0.85; metalness: 0"></a-plane>
+    <a-plane src="#texEast"    width="10" height="4"  rotation="0 -90 0" position="6 2 0"  material="roughness: 0.85; metalness: 0"></a-plane>
+    <a-plane src="#texWest"    width="10" height="4"  rotation="0 90 0"  position="-6 2 0" material="roughness: 0.85; metalness: 0"></a-plane>
+
+    <!-- CRIMEBOARD -->
+    <a-plane src="#crimeboardImg" width="4.5" height="2.2" position="0 2.0 -4.78" material="roughness: 0.9; metalness: 0"></a-plane>
+    <a-plane src="#footprints" width="0.75" height="0.69" position="-1.66 2.44 -4.73" material="roughness: 0.9; metalness: 0" class="clickable"></a-plane>
+    <a-plane src="#bowtie"     width="1"    height="0.60" position="-0.53 2.25 -4.73" material="roughness: 0.9; metalness: 0" class="clickable"></a-plane>
+    <a-plane src="#sign"       width="1"    height="0.47" position="0.70 2.55 -4.73"  material="roughness: 0.9; metalness: 0" class="clickable"></a-plane>
+    <a-plane src="#sand"       width="1"    height="0.50" position="-1.55 1.35 -4.73" material="roughness: 0.9; metalness: 0" class="clickable"></a-plane>
+    <a-plane src="#bench"      width="0.75" height="0.40" position="-0.26 1.35 -4.73" material="roughness: 0.9; metalness: 0" class="clickable"></a-plane>
+    <a-plane src="#receipt"    width="0.75" height="0.50" position="1.60 1.39 -4.73"  material="roughness: 0.9; metalness: 0" class="clickable"></a-plane>
+    <a-plane src="#easteregg"  width="0.70" height="0.50" position="0.68 1.68 -4.73"  material="roughness: 0.9; metalness: 0" class="clickable"></a-plane>
+    <a-plane src="#sock"       width="0.62" height="0.52" position="1.75 2.30 -4.72"  material="roughness: 0.9; metalness: 0" class="clickable"></a-plane>
+
+    <!-- JUDY -->
+    <a-entity
+      id="judyHopps"
+      gltf-model="#judyModel"
+      position="2.25 0 -4.30"
+      scale="1.75 1.75 1.75"
+      rotation="0 40 0"
+      animation-mixer="clip: Armature|mixamo.com|Layer0; loop: repeat"
+      class="clickable">
+    </a-entity>
+
+    <!-- DOOR -->
+    <a-gltf-model id="door" src="#outsideDoorModel" position="0 1.5 4.92" rotation="0 180 0" scale="3 3 3" class="clickable"></a-gltf-model>
+
+    <!-- Invisible floor collider -->
+    <a-plane opacity="0" width="100" height="100" rotation="-90 0 0" position="0 0 0"></a-plane>
+
+    <a-light type="ambient"     intensity="0.4"></a-light>
+    <a-light type="directional" position="0 5 0"  intensity="0.3"></a-light>
+    <a-light type="point"       position="0 3.5 0"  intensity="0.6" color="#c8d0e0" distance="10"></a-light>
+    <a-light type="point"       position="-4 3 -3"  intensity="0.3" color="#8899bb" distance="6"></a-light>
+    <a-light type="point"       position="4 3 -3"   intensity="0.3" color="#8899bb" distance="6"></a-light>
+
+    <a-entity id="player" position="0 2.2 3.5" movement-bounds="minX: -5.5; maxX: 5.5; minZ: -4.5; maxZ: 4.5">
+      <a-camera wasd-controls="acceleration: 80" look-controls="pointerLockEnabled: true" position="0 0 0">
+        <a-cursor color="#72ffac" fuse="false" raycaster="objects: .clickable"></a-cursor>
+      </a-camera>
+    </a-entity>
+
+  </a-scene>
+
+  <script src="/crimeboard/crimeboard.js"></script>
+
+  <script>
+    document.querySelector('#judyHopps').addEventListener('click', function () {
+      document.getElementById('judy-popup').style.display = 'block';
+    });
+  </script>
+</body>
+</html>

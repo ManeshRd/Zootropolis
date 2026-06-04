@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZPD AR Scanner</title>
+  <link rel="stylesheet" href="ar.css" />
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.5.1/dist/aframe-extras.min.js"></script>
+</head>
+
+<body>
+
+  <div class="scanner-ui">
+    <p>ZPD Scanner</p>
+    <a href="/briefingroom/briefingroom.html">✕ Leave AR</a>
+  </div>
+
+  <a-scene
+    mindar-image="
+      imageTargetSrc: /ar_assets/targets.mind;
+      maxTrack: 1;
+      filterMinCF: 0.0001;
+      filterBeta: 0.0008;
+      warmupTolerance: 3;
+      missTolerance: 35;
+    "
+    color-space="sRGB"
+    renderer="colorManagement: true; physicallyCorrectLights: true; antialias: true; alpha: true;"
+    vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false"
+    loading-screen="enabled: false">
+
+    <a-assets timeout="5000">
+      <a-asset-item id="clue1Model"       src="/ar_assets/clue1.glb"></a-asset-item>
+      <a-asset-item id="clue2Model"       src="/ar_assets/clue2.glb"></a-asset-item>
+      <a-asset-item id="clue3Model"       src="/ar_assets/clue3.glb"></a-asset-item>
+      <a-asset-item id="clue4Model"       src="/ar_assets/clue4.glb"></a-asset-item>
+      <a-asset-item id="clue5Model"       src="/ar_assets/clue5.glb"></a-asset-item>
+      <a-asset-item id="clue7Model"       src="/ar_assets/clue7.glb"></a-asset-item>
+      <a-asset-item id="clue8Model"       src="/ar_assets/clue8.glb"></a-asset-item>
+      <a-asset-item id="easterEggModel"   src="/ar_assets/easteregg.glb"></a-asset-item>
+      <a-asset-item id="nickDancingModel" src="/ar_assets/nickdancing.glb"></a-asset-item>
+      <a-asset-item id="judyDancingModel" src="/ar_assets/judydancing.glb"></a-asset-item>
+    </a-assets>
+
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+    <a-light type="ambient"     intensity="1.4"></a-light>
+    <a-light type="directional" position="0 2 1" intensity="1.1"></a-light>
+    <a-light type="point"       position="0 0.5 0" intensity="1.5" color="#00ffff" distance="3"></a-light>
+
+    <!-- INDEX 0 — Clue 1 -->
+    <a-entity mindar-image-target="targetIndex: 0">
+    <a-gltf-model src="#clue1Model" position="0 0 0" scale="1 1 1"
+    animation-mixer
+    animation__pop="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; dur: 600; easing: easeOutBack;"
+    animation__rotate="property: rotation; to: 0 360 0; dur: 12000; loop: true; easing: linear;">
+    </a-gltf-model>
+    </a-entity>
+
+    <!-- INDEX 1 — Clue 2 -->
+    <a-entity mindar-image-target="targetIndex: 1">
+      <a-gltf-model src="#clue2Model" position="0 0 0" scale="0.5 0.5 0.5"
+        animation-mixer
+        animation__pop="property: scale; from: 0.05 0.05 0.05; to: 0.5 0.5 0.5; dur: 600; easing: easeOutBack;">
+      </a-gltf-model>
+    </a-entity>
+
+    <!-- INDEX 2 — Clue 3 -->
+    <a-entity mindar-image-target="targetIndex: 2">
+      <a-gltf-model src="#clue3Model" position="0 0 0" scale="0.7 0.7 0.7"
+        animation-mixer
+        animation__pop="property: scale; from: 0.1 0.1 0.1; to: 0.7 0.7 0.7; dur: 600; easing: easeOutBack;">
+      </a-gltf-model>
+    </a-entity>
+
+    <!-- INDEX 3 — Clue 4 -->
+    <a-entity mindar-image-target="targetIndex: 3">
+      <a-gltf-model src="#clue4Model" position="0 0 0" scale="0.45 0.45 0.45"
+        animation-mixer
+        animation__pop="property: scale; from: 0.1 0.1 0.1; to: 0.45 0.45 0.45; dur: 600; easing: easeOutBack;">
+      </a-gltf-model>
+    </a-entity>
+
+    <!-- INDEX 4 — Clue 5 -->
+    <a-entity mindar-image-target="targetIndex: 4">
+      <a-gltf-model src="#clue5Model" position="0 0 0" scale="0.5 0.5 0.5"
+        animation-mixer
+        animation__pop="property: scale; from: 0.1 0.1 0.1; to: 0.5 0.5 0.5; dur: 600; easing: easeOutBack;">
+      </a-gltf-model>
+    </a-entity>
+
+    <!-- INDEX 5 — Clue 7 -->
+    <a-entity mindar-image-target="targetIndex: 5">
+      <a-gltf-model src="#clue7Model" position="0 0 0" scale="0.25 0.25 0.25"
+        animation-mixer
+        animation__pop="property: scale; from: 0.05 0.05 0.05; to: 0.25 0.25 0.25; dur: 600; easing: easeOutBack;">
+      </a-gltf-model>
+    </a-entity>
+
+    <!-- INDEX 6 — Clue 8 -->
+    <a-entity mindar-image-target="targetIndex: 6">
+      <a-gltf-model src="#clue8Model" position="0 0 0" scale="0.5 0.5 0.5"
+        animation-mixer
+        animation__pop="property: scale; from: 0.1 0.1 0.1; to: 0.5 0.5 0.5; dur: 600; easing: easeOutBack;">
+      </a-gltf-model>
+    </a-entity>
+
+    <!-- INDEX 7 — Easter Egg -->
+    <a-entity mindar-image-target="targetIndex: 7">
+      <a-gltf-model src="#easterEggModel" position="0 0 0" scale="0.25 0.25 0.25"
+        rotation="0 0 0"
+        animation-mixer
+        animation__pop="property: scale; from: 0.02 0.02 0.02; to: 0.25 0.25 0.25; dur: 600; easing: easeOutBack;">
+      </a-gltf-model>
+    </a-entity>
+
+    <!-- INDEX 8 — Lobby Judy (unused) -->
+    <a-entity mindar-image-target="targetIndex: 8"></a-entity>
+
+    <!-- INDEX 9 — Nick & Judy Solved -->
+    <a-entity mindar-image-target="targetIndex: 9">
+      <a-gltf-model src="#nickDancingModel" position="-0.5 0 0" scale="1.5 1.5 1.5"
+        animation-mixer
+        animation__pop="property: scale; from: 0.15 0.15 0.15; to: 1.5 1.5 1.5; dur: 600; easing: easeOutBack;">
+      </a-gltf-model>
+      <a-gltf-model src="#judyDancingModel" position="0.5 0 0" scale="1.5 1.5 1.5"
+        animation-mixer
+        animation__pop="property: scale; from: 0.15 0.15 0.15; to: 1.5 1.5 1.5; dur: 600; easing: easeOutBack;">
+      </a-gltf-model>
+    </a-entity>
+
+  </a-scene>
+
+  <script>
+    const scene = document.querySelector("a-scene");
+    const nickJudyTarget = document.querySelector('[mindar-image-target="targetIndex: 9"]');
+
+    const music = new Audio("/audio/nick-dancing.mp3");
+    music.loop = true;
+
+    let audioUnlocked = false;
+
+    function unlockAudio() {
+      if (audioUnlocked) return;
+      music.play().then(() => {
+        music.pause();
+        music.currentTime = 0;
+        audioUnlocked = true;
+      }).catch(() => {});
+    }
+
+    scene.addEventListener("arReady", () => {
+      document.addEventListener("touchstart", unlockAudio, { once: true });
+    });
+
+    nickJudyTarget.addEventListener("targetFound", () => {
+      music.currentTime = 0;
+      music.play().catch(() => {});
+    });
+
+    nickJudyTarget.addEventListener("targetLost", () => {
+      music.pause();
+      music.currentTime = 0;
+    });
+  </script>
+
+</body>
+</html>
